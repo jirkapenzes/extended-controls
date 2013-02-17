@@ -1,5 +1,8 @@
 package jp.samples.app;
 
+import jp.controls.button.ImageButton;
+import jp.controls.button.hover.ButtonBackgroundColorStyle;
+import jp.controls.button.hover.ImageButtonActionStyle;
 import jp.controls.tabControl.TabControl;
 import jp.controls.tabControl.TabItem;
 
@@ -18,7 +21,8 @@ public class MainFrame extends JFrame {
 
     public MainFrame() {
         initializeComponents();
-        tabControlSample();
+        //tabControlSample();
+        imageButtonSample();
     }
 
     // how use tab-control
@@ -37,6 +41,25 @@ public class MainFrame extends JFrame {
         tabControl.addTabItem(new TabItem("Tab item 5", tamItemPanel5));
 
         contentPane.add(tabControl, BorderLayout.CENTER);
+    }
+
+    private void imageButtonSample() {
+        ImageButtonActionStyle hoverStyle = new ButtonBackgroundColorStyle();
+        final int padding = 3;
+        Dimension dimension = new Dimension(16, 16);
+
+        ImageButton imageButton1 = new ImageButton(Resources.getImage("icon.png"), hoverStyle, dimension, padding);
+        ImageButton imageButton2 = new ImageButton(Resources.getImage("icon.png"), hoverStyle, dimension, padding);
+        ImageButton imageButton3 = new ImageButton(Resources.getImage("icon.png"), hoverStyle, dimension, padding);
+        ImageButton imageButton4 = new ImageButton(Resources.getImage("icon.png"), hoverStyle, dimension, padding);
+
+        imageButton4.setActive(true);
+
+        contentPane.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
+        contentPane.add(imageButton1);
+        contentPane.add(imageButton2);
+        contentPane.add(imageButton3);
+        contentPane.add(imageButton4);
     }
 
     private JPanel makeContent(int index) {
